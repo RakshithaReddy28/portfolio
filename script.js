@@ -94,25 +94,26 @@
   // ---------- Render projects ----------
   const projectsGrid = document.getElementById('projects-grid');
   projectsGrid.innerHTML = projects.map((p) => {
-    const links = Object.entries(p.links)
-      .filter(([, url]) => url)
-      .map(([key, url]) => {
-        const icon = key === 'github' ? 'fa-brands fa-github' : 'fa-solid fa-arrow-up-right-from-square';
-        return '<a href="' + url + '" target="_blank" rel="noopener" aria-label="' + key + '"><i class="' + icon + '"></i></a>';
-      })
-      .join('');
+    const projectUrl = (p.links.demo || p.links.github).replace(/"/g, '&quot;');
     return (
-      '<article class="project-card reveal">' +
+      '<article class="project-card reveal" data-url="' + projectUrl + '">' +
         '<div class="project-header">' +
           '<span class="project-icon"><i class="' + p.icon + '"></i></span>' +
-          '<div class="project-links">' + links + '</div>' +
         '</div>' +
         '<h3 class="project-title">' + p.title + '</h3>' +
         '<p class="project-description">' + p.description + '</p>' +
         '<p class="project-tech">' + p.tech.join(' &#8231; ') + '</p>' +
+        '<a href="' + projectUrl + '" class="btn btn-outline project-btn" target="_blank" rel="noopener">View Project <i class="fas fa-arrow-right"></i></a>' +
       '</article>'
     );
   }).join('');
+
+  // Make the entire project card clickable
+  projectsGrid.addEventListener('click', (e) => {
+    const card = e.target.closest('.project-card');
+    if (!card || e.target.closest('a')) return;
+    window.open(card.dataset.url, '_blank', 'noopener');
+  });
 
   // ---------- Render skills ----------
   const skillsGrid = document.getElementById('skills-grid');
