@@ -60,7 +60,7 @@
       icon: 'fa-solid fa-x-ray',
       links: {
         github: 'https://drive.google.com/drive/u/0/folders/1oYZvlz_HzB0Rhpnb8evOV8VDEdr06IuR',
-        demo: 'https://drive.google.com/drive/u/0/folders/1oYZvlz_HzB0Rhpnb8evOV8VDEdr06IuR'
+        demo: 'https://rakshithareddy28.pythonanywhere.com'
       }
     },
     {
