@@ -221,15 +221,6 @@ ul {
   box-shadow: var(--shadow);
 }
 
-.hero-photo-frame::after {
-  content: '';
-  position: absolute;
-  inset: 12px;
-  border: 1px dashed var(--accent-border);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
 .hero-photo-frame img {
   width: 100%;
   height: 100%;
