@@ -354,42 +354,6 @@ ul {
   display: none;
 }
 
-/* ---------- Dashboards ---------- */
-.dashboard-card {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 40px;
-  align-items: center;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 32px;
-  box-shadow: var(--shadow);
-  transition: border-color var(--transition);
-}
-
-.dashboard-card:hover {
-  border-color: var(--accent);
-}
-
-.dashboard-img {
-  width: 100%;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-}
-
-.dashboard-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.dashboard-description {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 22px;
-}
-
 /* ---------- Projects ---------- */
 .projects-grid {
   display: grid;
@@ -401,10 +365,11 @@ ul {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 28px;
+  padding: 0 0 28px 0;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  overflow: hidden;
   transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
 
@@ -414,10 +379,18 @@ ul {
   box-shadow: var(--shadow);
 }
 
+.project-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
+}
+
 .project-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 20px 28px 0;
   margin-bottom: 16px;
 }
 
@@ -439,12 +412,14 @@ ul {
 .project-title {
   font-size: 1.25rem;
   font-weight: 700;
+  padding: 0 28px;
   margin-bottom: 10px;
 }
 
 .project-description {
   color: var(--text-muted);
   font-size: 0.95rem;
+  padding: 0 28px;
   flex-grow: 1;
   margin-bottom: 18px;
 }
@@ -453,6 +428,7 @@ ul {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--accent-dark);
+  padding: 0 28px;
   margin-bottom: 20px;
 }
 
@@ -460,6 +436,7 @@ ul {
   margin-top: auto;
   align-self: flex-start;
   padding: 10px 22px;
+  margin-left: 28px;
 }
 
 /* ---------- Skills ---------- */
@@ -763,10 +740,6 @@ ul {
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .dashboard-card {
     grid-template-columns: 1fr;
   }
 }

@@ -72,6 +72,14 @@
         github: 'https://drive.google.com/drive/folders/1vA9Y2Ss8bUz9Kc0VBe57U_wwUhKmp1xi',
         demo: 'https://dark-fashions.onrender.com'
       }
+    },
+    {
+      title: 'Ecommerce Sales Dashboard',
+      description: 'Interactive Power BI dashboard analyzing e-commerce sales — revenue, orders, category performance, and trends. Built with data modeling, DAX measures, and rich visualizations.',
+      tech: ['Power BI', 'DAX', 'Data Modeling'],
+      icon: 'fa-solid fa-chart-pie',
+      image: 'dashboard-ecommerce.png',
+      fileDownload: 'Ecommerce_Sales_Dashboard.pbix'
     }
   ];
 
@@ -94,16 +102,22 @@
   // ---------- Render projects ----------
   const projectsGrid = document.getElementById('projects-grid');
   projectsGrid.innerHTML = projects.map((p) => {
-    const projectUrl = (p.links.demo || p.links.github).replace(/"/g, '&quot;');
+    const hasLink = p.links && (p.links.demo || p.links.github);
+    const projectUrl = hasLink ? (p.links.demo || p.links.github).replace(/"/g, '&quot;') : '';
+    const image = p.image ? '<img src="' + p.image + '" alt="' + p.title + '" class="project-img">' : '';
+    const action = p.fileDownload
+      ? '<a href="' + p.fileDownload + '" download class="btn btn-outline project-btn"><i class="fas fa-download"></i> Download .pbix</a>'
+      : (hasLink ? '<a href="' + projectUrl + '" class="btn btn-outline project-btn" target="_blank" rel="noopener">View Project <i class="fas fa-arrow-right"></i></a>' : '');
     return (
-      '<article class="project-card reveal" data-url="' + projectUrl + '">' +
+      '<article class="project-card reveal"' + (projectUrl ? ' data-url="' + projectUrl + '"' : '') + '>' +
+        image +
         '<div class="project-header">' +
           '<span class="project-icon"><i class="' + p.icon + '"></i></span>' +
         '</div>' +
         '<h3 class="project-title">' + p.title + '</h3>' +
         '<p class="project-description">' + p.description + '</p>' +
         '<p class="project-tech">' + p.tech.join(' &#8231; ') + '</p>' +
-        '<a href="' + projectUrl + '" class="btn btn-outline project-btn" target="_blank" rel="noopener">View Project <i class="fas fa-arrow-right"></i></a>' +
+        action +
       '</article>'
     );
   }).join('');
@@ -111,7 +125,7 @@
   // Make the entire project card clickable
   projectsGrid.addEventListener('click', (e) => {
     const card = e.target.closest('.project-card');
-    if (!card || e.target.closest('a')) return;
+    if (!card || !card.dataset.url || e.target.closest('a')) return;
     window.open(card.dataset.url, '_blank', 'noopener');
   });
 
