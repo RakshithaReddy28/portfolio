@@ -110,12 +110,12 @@
       : (hasLink ? '<a href="' + projectUrl + '" class="btn btn-outline project-btn" target="_blank" rel="noopener">View Project <i class="fas fa-arrow-right"></i></a>' : '');
     return (
       '<article class="project-card reveal"' + (projectUrl ? ' data-url="' + projectUrl + '"' : '') + '>' +
-        image +
         '<div class="project-header">' +
           '<span class="project-icon"><i class="' + p.icon + '"></i></span>' +
         '</div>' +
         '<h3 class="project-title">' + p.title + '</h3>' +
         '<p class="project-description">' + p.description + '</p>' +
+        image +
         '<p class="project-tech">' + p.tech.join(' &#8231; ') + '</p>' +
         action +
       '</article>'

@@ -380,10 +380,13 @@ ul {
 }
 
 .project-img {
-  width: 100%;
+  width: calc(100% - 56px);
+  margin: 0 28px 18px;
   aspect-ratio: 16/9;
   object-fit: cover;
-  border-bottom: 1px solid var(--border);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
 .project-header {
