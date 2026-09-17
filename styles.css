@@ -354,6 +354,42 @@ ul {
   display: none;
 }
 
+/* ---------- Dashboards ---------- */
+.dashboard-card {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  transition: border-color var(--transition);
+}
+
+.dashboard-card:hover {
+  border-color: var(--accent);
+}
+
+.dashboard-img {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.dashboard-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.dashboard-description {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+}
+
 /* ---------- Projects ---------- */
 .projects-grid {
   display: grid;
@@ -727,6 +763,10 @@ ul {
   }
 
   .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card {
     grid-template-columns: 1fr;
   }
 }
