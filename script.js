@@ -70,7 +70,7 @@
       icon: 'fa-solid fa-shirt',
       links: {
         github: 'https://drive.google.com/drive/folders/1vA9Y2Ss8bUz9Kc0VBe57U_wwUhKmp1xi',
-        demo: 'https://dark-fashions.onrender.com'
+        demo: 'https://dark-fashions-1.onrender.com'
       }
     },
     {
